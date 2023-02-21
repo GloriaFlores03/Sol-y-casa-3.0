@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% block title %} <title>Subir Fotos Compra</title> {% endblock %}
+
+{% block content %}
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    {{form.as_p}}
+
+    <center><input type="submit" value="Subir foto"></input></center>
+</form>
+{% if message == 1 %}
+    <p class="text-sucess">La foto se ha subido correctamente</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+.d-item {
+    height: 100%;
+}
+
+.d-img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.carousel-item {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.carousel-inner {
+  height: 100%;
+}

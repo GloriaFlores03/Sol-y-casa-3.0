@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block title %} <title>Perfil empleado</title> {% endblock %}
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-qsi5I0aZ1xnjZiHiJmb7AyAfzGwzm0h6GlzNNfvoV4STjzPohiV7L2GmiKjHtlu+" crossorigin="anonymous">
+</head>
+{% block content %}
+{% load static %}
+<h1><u>Perfil: </u> <img src="{% static 'fotos_perfil/perfil2.jpeg' %}" style="width: 10%; border-radius: 50px;">
+</h1>
+
+<br>
+<a href="{% url 'edit_perfil_empleado'%}" class="btn btn-info">Editar Perfil <i class="fas fa-user-edit"></i></a> <a href="{% url 'delete_perfil_empleado' %}" class="btn btn-danger">Eliminar perfil <i class="fas fa-user-times"></i></a> <a href="{% url 'logout' %}" class="btn btn-warning">Logout <i class="fas fa-sign-out-alt"></i></a>
+{% if empleado %}
+
+<p><b><i>Username:</b></i> {{ empleado.id_user.username }} </p>
+<p><b><i>Nombre completo:</i></b> {{ empleado.id_user.get_full_name }}</p>
+<p><b><i>Email:</b></i> {{ empleado.id_user.email }} </p>
+<p><b><i>Telefono:</b></i> {{ empleado.telefono }}</p>
+<p><b><i>Direccion:</b></i> {{ empleado.direccion }}</p>
+<br>
+<br>
+
+{% endif %}
+
+{% endblock %}

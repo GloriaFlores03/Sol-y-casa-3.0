@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block title %} <title>Alquiler Inmuebles</title> {% endblock %}
+
+{% block content %}
+<h1><u>Alquilar Inmuebles:</u></h1>
+
+{% if alquilar_list %}
+<ul>
+    {%for inmueble in alquilar_list %}
+    <li><a href= "{% url "alquilar_details" inmueble.id%}">{{ inmueble.ubicacion }} - {{ inmueble.precio}}€ </a></li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p> no hay Inmuebles</p>
+{% endif %}
+
+
+{% endblock %}

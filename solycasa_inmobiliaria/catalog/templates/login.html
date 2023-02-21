@@ -1,0 +1,53 @@
+{% extends "base_generic.html" %}
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-qsi5I0aZ1xnjZiHiJmb7AyAfzGwzm0h6GlzNNfvoV4STjzPohiV7L2GmiKjHtlu+" crossorigin="anonymous">
+</head>
+{% block title %} <title>Login</title> {% endblock %}
+{% block content %}
+<h1><u>Login user:</h1></u>
+{% load static %}
+<img src="{% static 'fotos_perfil/login.jpeg' %}" style="width: 25%; border-radius: 50px;">
+<br>
+<br>
+<form method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="{{ form.username.id_for_label }}">Username:</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa fa-user"></i>
+                </span>
+            </div>
+            {{ form.username }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.password.id_for_label }}">Password:</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa fa-lock"></i>
+                </span>
+            </div>
+            {{ form.password }}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="background-color: rgb(046, 139, 087);">
+        <i class="fa fa-sign-in-alt"></i> Login
+    </button>
+
+    {% if form.errors %}
+        <p class="text-danger">
+            Your username and password didn't match. Please try again.
+        </p>
+    {% endif %}
+
+</form>
+
+<br>
+<br>
+{% endblock %}

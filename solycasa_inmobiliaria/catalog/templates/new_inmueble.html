@@ -1,0 +1,19 @@
+{% extends "base_generic.html"%}
+{% block title %} <title> Nuevo Inmueble </title>{% endblock %}
+{% block content %}
+<h1>Nuevo Inmueble</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    
+    {{form.as_p }}
+    <p>Solo marcar en caso de compra</p>
+    
+    <center><input type="submit" value="registro"></input></center>
+</form>
+
+{% if message == 1 %}
+    <p class="text-sucess"> Has registrado un nuevo inmueble</p>
+{% endif %}
+
+{% endblock %}

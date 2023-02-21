@@ -1,0 +1,41 @@
+/* Media query para pantallas de hasta 600px */
+@media only screen and (max-width: 600px) {
+	body {
+		max-width: 100%;
+	}
+	.container-fluid {
+		max-width: 100%;
+	}
+	header {
+		min-height: 60px; /* Altura mínima para el header */
+	}
+	nav {
+		max-width: 100%; /* Ancho máximo para los botones del header */
+		margin: 0 auto; /* Centrar los botones en el header */
+	}
+}
+
+/* Media query para pantallas de 350px o más */
+@media only screen and (min-width: 350px) {
+	body {
+		max-width: 100%;
+	}
+	.container-fluid {
+		max-width: 100%;
+	}
+	header {
+		min-height: 80px; /* Altura mínima para el header */
+	}
+	nav {
+		max-width: 100%; /* Ancho máximo para los botones del header */
+		margin: 0 auto; /* Centrar los botones en el header */
+	}
+}
+
+.custom-image-container img {
+
+	max-width: 100% !important;
+	height: 100% !important;
+	object-fit: cover;
+}
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    {% block title %}<title> Sol y casa </title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    
+    <!-- Add additional CSS in static file -->
+    {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+        <link rel="icon" type="image/png" href="{% static 'fotos_perfil/sol_y_casa.png' %}" sizes="48x48">
+
+
+    <!--link rel="stylesheet" href="{% static 'css/styles.css' %}" -->
+
+</head>
+
+<header style="background-color: rgb(046, 139, 087);">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>
+                    <i>
+                        <img src="{% static 'fotos_perfil/sol_y_casa.png' %}" style="width: 18%; margin-left: 5%;">   <span class="fs-4">Inmobiliaria Sol y Casa</span>
+                    </i>
+                </h1>
+            </div>
+            <div class="col-md-6">
+                <ul class="nav nav-pills" style="padding-left: 1em;">
+                    <li class="nav-item">
+                        <a class="nav-link active px-2" href="{% url 'alquilar'%}" aria-current="true" style="margin:0.5em; color: black; background-color: white;"> Alquilar <i class="fas fa-building"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-2" href="{% url 'comprar'%}" aria-current="page" style="margin: 0.5em; color: black; background-color: white;">Comprar <i class="fas fa-home"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-2" href="{% url 'registro' %}" aria-current="page" style="margin: 0.5em; color: black; background-color: white;">Registrar <i class="fas fa-user-plus"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-2" href="{% url 'login' %}" aria-current="page" style="margin: 0.5em; color: black; background-color: white;">Login <i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active px-2" href="{% url 'perfil_cliente' %}" aria-current="page" style="margin: 0.5em; color: black; background-color: white;">Perfil <i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="nav-item ml-auto">
+                        <a class="nav-link active px-2" href="{% url 'index' %}" aria-current="page" style="margin: 0.5em; color: black; background-color: white;">Volver <i class="fas fa-home"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    
+</header>
+
+<body style="background-color: rgb(202, 245, 221);">
+
+    <div class="container-fluid" >
+    <div class="row">
+        <div class="col-sm-2">
+        {% block sidebar %}
+        
+        {% endblock %}
+        </div>
+        <div class="col-sm-10 ">
+        {% block content %}{% endblock %}
+        </div>
+    </div>
+    </div>
+
+    <footer class="fixed-bottom bg-secondary">
+        <div class="container-fluid" style="background-color: rgb(046, 139, 087);">
+            <div class="row">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-muted" href="" style="color: white; background-color: rgb(046, 139, 087);">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-muted" href="{% url 'registro' %}" style="color: white; background-color:  rgb(046, 139, 087);">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-muted" href="{% url 'index' %}" style="color: white; background-color:  rgb(046, 139, 087);">Pagina Principal</a>
+                    </li>
+                </ul>    
+                <p class="text-center text-muted" style="color: white; background-color:  rgb(046, 139, 087);">© 2023 Inmobiliaria Sol y Casa</p>
+            </div><!--//row-->
+        </div><!--//container fluid-->
+    </footer>
+
+</body>
