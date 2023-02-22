@@ -38,6 +38,7 @@ class NewInmueble(forms.Form):
                                     widget=forms.TextInput(attrs={'class': "form-control", 'placeholder':'ubicacion maps'}))
 
 
+
 class EditPerfilForm(forms.Form):
     nombre = forms.CharField(label='nombre',max_length=250,
                             widget=forms.TextInput(attrs={'class':"form-control",'placeholder':'nombre'}))

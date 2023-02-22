@@ -13,15 +13,11 @@ class Inmueble(models.Model):
     m2 = models.IntegerField()
     hipoteca = models.CharField(max_length=200,null=True, blank=True)
     descripcion = models.TextField(max_length=500)
-    ubicacion  = models.CharField(max_length=200)
     compra = models.BooleanField(default=True)
-    ubicacion_maps = models.CharField(max_length=5000, null=True)
+    ubicacion_maps = models.CharField(max_length=5000,null=True)
 
     class Meta:
         ordering = ['ubicacion','precio', 'm2', 'hipoteca']  
-
-    def get_absolute_url(self):
-        return reverse('alquilar_details', args=[str(self.id)])
 
     def get_google_maps_url(self):
         if self.ubicacion_maps:
@@ -33,6 +29,9 @@ class Inmueble(models.Model):
             else:
                 return None
             
+    def get_absolute_url(self):
+        return reverse('alquilar_details', args=[str(self.id)])
+
     def __str__(self):
         return f"{self.ubicacion}"
     
@@ -73,9 +72,9 @@ class Cliente(models.Model):
         return f"{self.id_user}"
     
 
-
 class Foto(models.Model):
-    id_inmueble = models.IntegerField()
+    id_inmueble = models.ForeignKey('Inmueble', on_delete=models.SET_NULL,null=True)
+    #id_inmueble = models.IntegerField(null=True)
     subir_foto_a= models.ImageField(upload_to="fotos_alquilar", null=True)
     subir_foto_c= models.ImageField(upload_to="fotos_compra", null=True)
 

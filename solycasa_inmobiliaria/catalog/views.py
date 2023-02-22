@@ -102,12 +102,6 @@ def login(request):
     }
     return render(request, 'login.html',context=context)
 
-@login_required
-def logout_view(request):
-
-    logout=request
-
-    return redirect('login')
 
 @login_required
 #@permission_required("Can add inmueble")
@@ -328,7 +322,6 @@ def delete_perfil_empleado(request):
 #@permission_required("catalog.can_create")    ESSS ASIII
 #@permission_required("Permisos_Empleados",'permiso 2')
 def subir_fotos_a(request,pk):
-    subir_fotos = Foto.objects.get(pk=pk)
     message = ""
     if request.method=='POST':
         form  = SubirFotoA(request.POST,request.FILES)
@@ -340,7 +333,6 @@ def subir_fotos_a(request,pk):
     
     context = {
         'message':message,
-        'subir_fotos':subir_fotos,
         'form':form,
     }
     return render(request, 'subir_fotos_a.html',context)
@@ -349,7 +341,6 @@ def subir_fotos_a(request,pk):
 @login_required
 #@permission_required("Permisos_Empleados",'permiso 2')
 def subir_fotos_c(request,pk):
-    subir_fotos = Foto.objects.get(pk=pk)
     message = ""
     if request.method=='POST':
         form  = SubirFotoC(request.POST,request.FILES)
@@ -361,7 +352,6 @@ def subir_fotos_c(request,pk):
     
     context = {
         'message':message,
-        'subir_fotos':subir_fotos,
         'form':form,
     }
     return render(request, 'subir_fotos_c.html',context)

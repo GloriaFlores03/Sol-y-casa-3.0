@@ -39,3 +39,8 @@
 	object-fit: cover;
 }
 
+.map {
+	margin-right: 60px;
+	max-width: 100%;
+}
+

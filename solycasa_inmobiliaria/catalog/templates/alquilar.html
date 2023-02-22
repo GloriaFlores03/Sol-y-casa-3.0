@@ -9,6 +9,12 @@
 <ul>
     {%for inmueble in alquilar_list %}
     <li><a href= "{% url "alquilar_details" inmueble.id%}">{{ inmueble.ubicacion }} - {{ inmueble.precio}}€ </a></li>
+
+    {% if inmueble.foto_set.exists %}
+            <img src="{{ inmueble.foto_set.first.subir_foto_a.url }}" alt="imagen de inmueble" width="300" height="170">
+        {% endif %}
+
+
     {% endfor %}
 </ul>
 {% else %}
